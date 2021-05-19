@@ -5,9 +5,12 @@ class Location {
 
   Future<void> getCurrentLoaction() async {
     try {
+      Geolocator geolocator = Geolocator()..forceAndroidLocationManager = true;
+      // print("Get location called!!");
+
       Position position = await Geolocator()
           .getCurrentPosition(desiredAccuracy: LocationAccuracy.low);
-      // print(position);
+      print(position);
       latitude = position.latitude;
       longitude = position.longitude;
     } catch (e) {
